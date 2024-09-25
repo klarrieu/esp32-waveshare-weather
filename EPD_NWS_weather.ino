@@ -179,7 +179,7 @@ void pngDrawRGB(PNGDRAW* pDraw) {
     int g = pDraw->pPixels[x * 3 + 1];
     int b = pDraw->pPixels[x * 3 + 2];
     // Convert RGB to grayscale using luminance formula
-    uint8_t grayscale = (r * 0.299) + (g * 0.587) + (b * 0.114);
+    uint8_t grayscale = clip((r * 0.299) + (g * 0.587) + (b * 0.114));
     // Store grayscale value in the temporary buffer
     imageState.grayscaleImage[imageState.y * pDraw->iWidth + x] = grayscale;
   }
